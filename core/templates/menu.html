@@ -1,0 +1,14 @@
+{% load menu_tag %}
+<div>
+    <ul class="menu">
+        {% for item in menu_items %}
+            <li>
+                <a href="?slug={{item.slug}}"> {{item.name}} </a>
+                {{current_menu_first_child}}
+                {% if target_menu == item %}
+                    {% depth_menu path %}
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+</div>
